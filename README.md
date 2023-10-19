@@ -1,3 +1,3 @@
-#for running both backend & frontend use#
+#for running both backend & frontend use
 
 #npm run both
