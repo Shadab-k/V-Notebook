@@ -1,2 +1,2 @@
 #for running both backend & frontend use
-npm run both
+#npm run both
