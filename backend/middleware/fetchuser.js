@@ -3,18 +3,22 @@ const JWT_SECRET = 'The User is identified'
 const fetchuser = (req, res, next) => {
 
     //Get the user from the jwt token and add id to req object 
-    const token = req.header('auth-token')
-    if (!token) {
-        res.status(401).send({ error: "Please Authenticate using a valid token" }) //401 = Unauthorised 
-    }
     try {
-    const data = jwt.verify(token, JWT_SECRET)
-    
-    req.user = data.user
-    next()
-} catch (error) {
-    res.status(401).send({error:"Please Authenticate using a valid token"})
-}
+        let token = req.headers['auth-token']
+        console.log('req-header', req.headers['auth-token'])
+
+        if (token) {
+            token = token.split(' ')[1]
+            console.log('token', token)
+            const data = jwt.verify(token, JWT_SECRET)
+            console.log('data', data)
+
+            req.user = data.user
+            next()
+        }
+    } catch (error) {
+        res.status(401).send({ error: "Error occured" })
+    }
 
 }
 

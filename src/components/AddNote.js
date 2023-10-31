@@ -7,14 +7,15 @@ const AddNote = (props) => {
     const { addNote } = context;
     const [note, setNote] = useState({
         title: '',
+        author:'',
         description: '',
         tag: '',
     });
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addNote(note.title, note.description, note.tag);
-        setNote({ title: '', description: '', tag: '' }); // Clear the input fields after submitting
+        addNote(note.title,note.author, note.description, note.tag);
+        setNote({ title: '', author:'',description: '', tag: '' }); // Clear the input fields after submitting
         props.showAlert("Note Added Successfully", "Success")
 
     };
@@ -25,7 +26,7 @@ const AddNote = (props) => {
 
     return (
         <div className="container my-3">
-            <h2>Add a Note</h2>
+            <h2>Add a new book</h2>
             <form className="my-3" onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="title" className="form-label">
@@ -42,9 +43,24 @@ const AddNote = (props) => {
                         required
                     />
                 </div>
+
+                <div className="mb-3">
+                    <label htmlFor="author" className="form-label">
+                        Author Name
+                    </label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="author"
+                        name="author"
+                        value={note.author}
+                        onChange={onChange}
+                        required
+                    />
+                </div>
                 <div className="mb-3">
                     <label htmlFor="description" className="form-label">
-                        Description
+                        Summary
                     </label>
                     <input
                         type="text"
@@ -74,7 +90,7 @@ const AddNote = (props) => {
                 </div>
            
                 <button disabled={note.title.length<5 || note.description.length<5} type="submit" className="btn btn-primary">
-                   Add Note
+                   Add Your Book
                 </button>
             </form>
         </div>

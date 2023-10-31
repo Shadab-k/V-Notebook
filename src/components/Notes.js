@@ -13,33 +13,43 @@ const Notes = (props) => {
     let navigate = useNavigate()
 
     useEffect(() => {
-        if (localStorage.getItem('token')) {
+        handleData()
+        // eslint-disable-next-line
+    }, [])
 
+
+
+    const handleData = async () => {
+        const token = await localStorage.getItem('token')
+        console.log('token ', token)
+        if (token) {
+            console.log('auth-token ', token)
             getNotes()
         }
         else {
             navigate("/login")
         }
-        // eslint-disable-next-line
-    }, [])
+
+    }
     const ref = useRef(null)
     const refClose = useRef(null)
     const [note, setNote] = useState({
         id: "",
         etitle: '',
+        eauthor: '',
         edescription: '',
         etag: '',
     });
 
     const updateNote = (currentNote) => {
         ref.current.click()
-        setNote({ id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag })
+        setNote({ id: currentNote._id, etitle: currentNote.title, eauthor: currentNote.author, edescription: currentNote.description, etag: currentNote.tag })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         refClose.current.click()
-        editNote(note.id, note.etitle, note.edescription, note.etag)
+        editNote(note.id, note.etitle, note.eauthor, note.edescription, note.etag)
         props.showAlert("Updated Note Successfully", "Success")
 
 
@@ -80,9 +90,26 @@ const Notes = (props) => {
                                         required
                                     />
                                 </div>
+
+
+                                <div className="mb-3">
+                                    <label htmlFor="author" className="form-label">
+                                        Author Name
+                                    </label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="eauthor"
+                                        name="eauthor"
+                                        value={note.eauthor}
+                                        onChange={onChange}
+                                        minLength={5}
+                                        required
+                                    />
+                                </div>
                                 <div className="mb-3">
                                     <label htmlFor="description" className="form-label">
-                                        Description
+                                        Summary
                                     </label>
                                     <input
                                         type="text"
@@ -114,13 +141,14 @@ const Notes = (props) => {
                         </div>
                         <div className="modal-footer">
                             <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button disabled={note.etitle.length < 5 || note.edescription.length < 5} onClick={handleSubmit} type="button" className="btn btn-primary">Update Note</button>
+                            <button disabled={note.etitle.length < 5 || note.edescription.length < 5} onClick={handleSubmit} type="button" className="btn btn-primary">Update Book</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div className="row my-3">
-                <h2>Your Notes</h2>
+                <h2  className="mx-3 d-flex justify-content-center">
+                    Your Books</h2>
                 <div className="container mx-2">
                     {notes.length === 0 && "No notes to display"}
                 </div>
@@ -128,6 +156,8 @@ const Notes = (props) => {
                     return <NoteItem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} />
                 })}
             </div>
+
+            
         </>
     )
 }

@@ -13,7 +13,7 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
-                <NavLink className="navbar-brand" to="/">VNotebook</NavLink>
+                <NavLink className="navbar-brand" to="/home">VNotebook</NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -32,7 +32,7 @@ const Navbar = () => {
                     <Link className="btn btn-primary mx-1" to="/signup" role="button">SignUp</Link>
 
 
-                    </form>: <button onClick={handleLogout} className='btn.btn-primary'>Logout</button>}
+                    </form>: <button onClick={handleLogout} className='btn btn-danger'>Logout</button>}
                 </div>
             </div>
         </nav>

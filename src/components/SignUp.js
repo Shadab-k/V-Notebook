@@ -35,7 +35,8 @@ const SignUp = (props) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
     };
     return (
-        <div className='container'>
+        <div className='container my-3'>
+        <h1 className='my-4'>SignUp to view your VNotebook</h1>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label"> Full Name</label>
@@ -55,7 +56,7 @@ const SignUp = (props) => {
                 </div>
 
 
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Signup</button>
             </form>    </div>
     )
 }
