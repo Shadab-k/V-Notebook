@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  .Nav{
+    background: rgb(238,174,202);
+background: -moz-radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(16,86,89,1) 100%);
+background: -webkit-radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(16,86,89,1) 100%);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(16,86,89,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeaeca",endColorstr="#105659",GradientType=1);
+  } 

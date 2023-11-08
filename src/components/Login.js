@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 const Login = (props) => {
-    const [credentials, setCredentials] = useState({ email: "", password: "" })
+    const [credentials, setCredentials] = useState({ email: "", password: "" ,})
     let navigate = useNavigate()
 
 
@@ -40,10 +40,10 @@ const Login = (props) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
     };
     return (
-        <div>
+        <div className='container d-flex justify-content-center'>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                    <h1 className="my-3">Login to continue to VNotebook</h1>
+                    <h1 className="my-3 text-dark">Login to continue to VNotebook</h1>
                     <label htmlFor="Email" className="form-label">Email address</label>
                     <input type="email" className="form-control" onChange={onChange} id="email" name="email" value={credentials.email} aria-describedby="emailHelp" />
                     <div id="email" className="form-text">We'll never share your email with anyone else.</div>
@@ -52,7 +52,7 @@ const Login = (props) => {
                     <label htmlFor="password" className="form-label">Password</label>
                     <input type="password" className="form-control" onChange={onChange} value={credentials.password} name='password' id="password" />
                 </div>
-                <button type="submit" className="btn btn-primary">Login</button>
+                <button type="submit" className="my-3 btn btn-primary">Login</button>
             </form>
         </div>
     )
