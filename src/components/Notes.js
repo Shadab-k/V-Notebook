@@ -22,9 +22,9 @@ const Notes = (props) => {
 
     const handleData = async () => {
         const token = await localStorage.getItem('token')
-        console.log('token ', token)
+        // console.log('token ', token)
         if (token) {
-            console.log('auth-token ', token)
+            // console.log('auth-token ', token)
             getNotes()
         }
         else {
@@ -149,7 +149,7 @@ const Notes = (props) => {
             </div>
             <div className="row my-3">
                 <h2  className="mx-3 d-flex justify-content-center">
-                    Your Books</h2>
+                    Your V-Books</h2>
                 <div className="container mx-2">
                     {notes.length === 0 && "No notes to display"}
                 </div>

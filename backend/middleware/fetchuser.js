@@ -5,13 +5,13 @@ const fetchuser = (req, res, next) => {
     //Get the user from the jwt token and add id to req object 
     try {
         let token = req.headers['auth-token']
-        console.log('req-header', req.headers['auth-token'])
+        // console.log('req-header', req.headers['auth-token'])
 
         if (token) {
             token = token.split(' ')[1]
-            console.log('token', token)
+            // console.log('token', token)
             const data = jwt.verify(token, JWT_SECRET)
-            console.log('data', data)
+            // console.log('data', data)
 
             req.user = data.user
             next()

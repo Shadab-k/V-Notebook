@@ -24,7 +24,7 @@ const NoteState = (props) => {
         
 
         const json = await response.json()
-        console.log('json ', json)
+        // console.log('json ', json)
 
         setNotes([...json])
         
@@ -83,8 +83,8 @@ const NoteState = (props) => {
             }
         });
         const json = response.json()
-        console.log(json)
-        console.log("Deleting node with id" + id)
+        // console.log(json)
+        // console.log("Deleting node with id" + id)
         const newNotes = notes.filter((note) => { return note._id !== id })
         setNotes(newNotes)
 
@@ -117,7 +117,7 @@ const NoteState = (props) => {
         //     body: JSON.stringify({ title, description, tag }),
         // });
         const json = await response.json()
-        console.log(json)
+        // console.log(json)
 
         let newNotes = JSON.parse(JSON.stringify(notes))
         for (let index = 0; index < newNotes.length; index++) {
@@ -131,7 +131,7 @@ const NoteState = (props) => {
             }
 
         }
-        console.log(id, notes)
+        // console.log(id, notes)
         setNotes(newNotes)
     }
 

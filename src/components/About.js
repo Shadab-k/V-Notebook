@@ -50,7 +50,7 @@ const About = () => {
 
         <div className="row featurette d-flex justify-content-center align-items-center ">
           <div className="col-md-7">
-            <h1 className="featurette-heading fw-normal lh-1">Join Our Community:</h1>
+            <h1 className="featurette-heading fw-normal lh-1">Join Our Community</h1>
             <p className=' my-3 lead' >
               At Virtual Notebook, we're building a community of passionate writers and thinkers. Connect with fellow creators, share your experiences, and learn from one another.</p>
           </div>

@@ -21,7 +21,7 @@ const Login = (props) => {
 
         });
         const json = await response.json()
-        console.log(json)
+        // console.log(json)
         
         if (json.success) {
             //Save the authToken and redirect \
