@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const mongoURI="mongodb+srv://ShadabK:Shadab123@cluster0.v7yy0s3.mongodb.net/?retryWrites=true&w=majority/vnotebook"
+const mongoURI="ymongodb+srv://ShadabK:Shadab123@cluster0.v7yy0s3.mongodb.net//vnotebook?retryWrites=true&w=majorit"
 
 
 const connectToMongo = ()=>{

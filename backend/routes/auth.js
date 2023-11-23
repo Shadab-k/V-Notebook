@@ -13,23 +13,21 @@ const JWT_SECRET = 'The User is identified'
 
 //Route :1 Create a User using POST "/api/auth/createuser".No login required
 
-router.post('/createuser',
-//  [
-    // body('name', ' Please Enter  a Valid name').isLength({ min: 3 }),
-    // body("email", 'Please Enter a valid Email Address').isEmail({}),
-    // body("password", 'Password must be atleast 5 characters').isLength({ min: 5 }),
+router.post('/createuser', [
+    body('name', ' Please Enter  a Valid name').isLength({ min: 3 }),
+    body("email", 'Please Enter a valid Email Address').isEmail({}),
+    body("password", 'Password must be atleast 5 characters').isLength({ min: 5 }),
 
 
-// ]
- async (req, res) => {
+], async (req, res) => {
     //if there are error return bad request and the errors
     let success=false
     console.log("errors",req.body)
 
-    // const errors = validationResult(req)
-    // if (!errors.isEmpty()) {
-    //     return res.status(400).json({success, errors: errors.array() })
-    // }
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+        return res.status(400).json({success, errors: errors.array() })
+    }
     //check whether the user with this email exists already
 
     try {
