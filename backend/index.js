@@ -14,6 +14,9 @@ app.use(cors())
 app.use(express.json())
 
 //Available Routes
+app.get('/',(req,res,next)=>{
+ res.send('Welcome to V-Notebook')
+})
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/notes', require('./routes/notes'))
 
