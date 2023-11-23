@@ -1,10 +1,14 @@
 const mongoose = require("mongoose")
-const mongoURI="mongodb://127.0.0.1/vnotebook"
+const mongoURI="mongodb+srv://ShadabK:Shadab123@cluster0.v7yy0s3.mongodb.net/?retryWrites=true&w=majority/vnotebook"
 
 
 const connectToMongo = ()=>{
-    mongoose.connect(mongoURI);
+    mongoose.connect(mongoURI).then((res)=>{
         console.log("Connected To  Mongo Successfully")
+    }).catch((error)=>{
+        console.log('error encountered',error)
+    });
+       
     }
 
 module.exports=connectToMongo;
