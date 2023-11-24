@@ -37,10 +37,10 @@ const Footer = () => {
 
                 <p className="text-center bg-dark ">© 2023 V-Notebook, Inc</p>
 
-                <p className="text-center">
+                {/* <p className="text-center">
 
 
-                    <a href="#"  >   Back to top</a ></p>
+                    <a href="#"  >   Back to top</a ></p> */}
 
             </footer>
         </div >
