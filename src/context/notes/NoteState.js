@@ -24,7 +24,6 @@ const NoteState = (props) => {
         
 
         const json = await response.json()
-        // console.log('json ', json)
 
         setNotes([...json])
         
@@ -46,16 +45,6 @@ const NoteState = (props) => {
             body: JSON.stringify({ title,author, description, tag })
         });
         
-        
-        // const response = await fetch(`${host}/api/notes/addnotes`, {
-            //     method: "POST",
-            
-        //     headers: {
-            //         "Content-Type": "application/json",
-            //         "auth-token": localStorage.getItem('token')
-            //     },
-            
-            // });
         const note = await response.json()
         setNotes(notes.concat(note))
        
@@ -63,15 +52,7 @@ const NoteState = (props) => {
 
     //Delete a Note
     const deleteNote = async (id) => {
-        // const response = await fetch(`${host}/api/notes/deletenotes/${id}`, {
-        //     method: "DELETE",
-
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //         "auth-token": localStorage.getItem('token')
-        //     }
-
-        // });
+   
 
         const authToken = localStorage.getItem('token');
 
@@ -83,8 +64,7 @@ const NoteState = (props) => {
             }
         });
         const json = response.json()
-        // console.log(json)
-        // console.log("Deleting node with id" + id)
+       
         const newNotes = notes.filter((note) => { return note._id !== id })
         setNotes(newNotes)
 
@@ -106,16 +86,7 @@ const NoteState = (props) => {
 
         });
 
-        // const response = await fetch(`${host}/api/notes/updatenotes/${id}`, {
-        //     method: "PUT",
-
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //         "auth-token": localStorage.getItem('token')
-        //     },
-
-        //     body: JSON.stringify({ title, description, tag }),
-        // });
+    
         const json = await response.json()
         // console.log(json)
 
@@ -131,7 +102,6 @@ const NoteState = (props) => {
             }
 
         }
-        // console.log(id, notes)
         setNotes(newNotes)
     }
 
